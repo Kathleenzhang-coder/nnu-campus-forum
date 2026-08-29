@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { MAJORS } from '../data/majors'
 import { currentEnrollYears } from '../lib/format'
+import { YouziMascot } from '../components/illos'
 
 export function LoginPage() {
   const { authenticate } = useAuth()
@@ -34,17 +35,12 @@ export function LoginPage() {
     <div className="auth-screen">
       <div className="auth-art">
         <div className="auth-art-inner">
-          <img className="auth-emblem" src="/nnu-emblem.png" alt="南京师范大学校徽" />
+          <YouziMascot size={96} />
           <h1>南师柚园</h1>
           <p className="motto">正德厚生，笃学敏行</p>
           <p className="auth-lead">
             南京师范大学专属校园论坛。校园周边、选课攻略、校内生活，写给南师人，也只给南师人看。
           </p>
-          <ul className="auth-points">
-            <li>随园黄墙 · 仙林银门 · 紫金钟山</li>
-            <li>先认证，再取昵称、选头像</li>
-            <li>选课评价全部由同学填写</li>
-          </ul>
         </div>
       </div>
       <form className="auth-panel" onSubmit={onSubmit}>

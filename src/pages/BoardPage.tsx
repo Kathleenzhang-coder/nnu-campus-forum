@@ -50,9 +50,7 @@ export function BoardPage() {
           </>
         )}
         <span>/</span>
-        <span>
-          {meta.emoji} {meta.name}
-        </span>
+        <span>{meta.name}</span>
       </nav>
 
       <header className="page-head split">
@@ -60,9 +58,7 @@ export function BoardPage() {
           <p className="eyebrow">
             {campusInfo.name} · {meta.parent ?? '柚园版块'}
           </p>
-          <h1>
-            {meta.emoji} {meta.name}
-          </h1>
+          <h1>{meta.name}</h1>
           <p>
             {campusInfo.short}校区专属。{boardLead}
           </p>

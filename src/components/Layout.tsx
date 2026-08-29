@@ -2,6 +2,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCampus } from '../context/CampusContext'
 import { Avatar } from './Avatar'
+import { YouziMascot } from './illos'
 
 export function Layout() {
   const { user, logout } = useAuth()
@@ -10,7 +11,6 @@ export function Layout() {
 
   return (
     <div className="shell" data-campus={campus}>
-      <div className="shell-watermark" aria-hidden="true" />
       <header className="topbar">
         <div className="campus-switch" role="tablist" aria-label="切换校区">
           {campuses.map((item) => (
@@ -27,7 +27,9 @@ export function Layout() {
           ))}
         </div>
         <button className="brand" onClick={() => navigate('/')}>
-          <span className="brand-seal">柚</span>
+          <span className="brand-seal">
+            <YouziMascot size={36} />
+          </span>
           <span>
             <strong>南师柚园</strong>
             <em>

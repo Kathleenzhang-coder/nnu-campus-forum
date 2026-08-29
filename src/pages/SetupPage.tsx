@@ -4,6 +4,7 @@ import { Avatar } from '../components/Avatar'
 import { useAuth } from '../context/AuthContext'
 import { AVATARS } from '../data/avatars'
 import { fileToAvatarDataUrl } from '../lib/storage'
+import { YouziMascot } from '../components/illos'
 
 export function SetupPage() {
   const { user, completeProfile } = useAuth()
@@ -40,6 +41,7 @@ export function SetupPage() {
   return (
     <div className="setup-screen">
       <form className="setup-card" onSubmit={onSubmit}>
+        <YouziMascot size={72} />
         <p className="eyebrow">完善资料</p>
         <h1>你好，{user?.realName}</h1>
         <p className="hint">

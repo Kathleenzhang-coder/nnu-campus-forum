@@ -9,19 +9,18 @@
   --purple-400: #7eb89a;
   --purple-200: #d5eadc;
   --purple-100: #e8f2ec;
-  --gold-600: #b8860b;
-  --gold-500: #c5a059;
-  --gold-200: #f0e2b6;
-  --cream: #f4f6f1;
-  --paper: #fffcf7;
-  --ink: #1a241c;
-  --muted: #5a6b60;
-  --line: #d5e3d9;
-  --danger: #b42318;
+  --gold-600: #c49a2a;
+  --gold-500: #d4b45a;
+  --gold-200: #f7e8b8;
+  --cream: #fff6ea;
+  --paper: #fffdf8;
+  --ink: #2a3328;
+  --muted: #6a7a6c;
+  --line: #eadcc6;
+  --danger: #d45a48;
   --ok: #1a6840;
-  --shadow: 0 18px 50px rgba(26, 104, 64, 0.1);
-  --radius: 14px;
-  --hero: none;
+  --shadow: 0 16px 40px rgba(26, 104, 64, 0.1);
+  --radius: 24px;
   --accent: #1a6840;
   font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
   color: var(--ink);
@@ -46,15 +45,15 @@ body,
 body {
   margin: 0;
   background:
-    radial-gradient(1200px 500px at 8% -12%, rgba(26, 104, 64, 0.12), transparent 55%),
-    radial-gradient(900px 400px at 100% 0%, rgba(197, 160, 89, 0.16), transparent 50%),
+    radial-gradient(circle at 90% 0%, rgba(255, 224, 138, 0.28), transparent 32%),
+    radial-gradient(circle at 8% 100%, rgba(143, 212, 106, 0.16), transparent 36%),
     var(--cream);
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Noto Serif SC', 'PingFang SC', serif;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0;
@@ -123,9 +122,19 @@ img {
 }
 
 .primary-btn {
-  background: linear-gradient(135deg, var(--nnu-green), var(--nnu-green-dark));
+  background: linear-gradient(180deg, #3d9a68, var(--nnu-green));
   color: #fff;
-  box-shadow: 0 8px 20px rgba(26, 104, 64, 0.28);
+  box-shadow: 0 8px 0 #0f3d26;
+  transition: transform 0.18s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #0f3d26;
 }
 
 .primary-btn:disabled {
@@ -182,12 +191,15 @@ textarea:focus,
   height: 42px;
   display: grid;
   place-items: center;
-  border-radius: 8px;
-  background: var(--nnu-green);
-  color: var(--gold-200);
-  font-family: 'Noto Serif SC', serif;
-  font-weight: 700;
-  box-shadow: inset 0 0 0 2px rgba(240, 226, 182, 0.35);
+  border-radius: 50%;
+  background: #fff4c8;
+  overflow: hidden;
+  box-shadow: 0 4px 0 rgba(26, 104, 64, 0.12);
+}
+
+.brand-seal .youzi {
+  width: 36px;
+  height: 36px;
 }
 
 .brand-seal.lg {
@@ -215,10 +227,11 @@ textarea:focus,
 
 .auth-art {
   background:
-    linear-gradient(180deg, rgba(12, 42, 26, 0.72), rgba(26, 104, 64, 0.82)),
-    url('/campus/suiyuan-gate.png') center 35% / cover no-repeat;
-  color: #f7f0e6;
-  padding: 64px;
+    linear-gradient(180deg, rgba(255, 248, 232, 0.72), rgba(232, 246, 232, 0.9)),
+    radial-gradient(circle at 80% 18%, #ffe08a 0 18%, transparent 19%),
+    #eaf6ea;
+  color: var(--ink);
+  padding: 48px 40px 40px;
   display: grid;
   align-items: center;
   position: relative;
@@ -227,29 +240,7 @@ textarea:focus,
 
 .auth-art::before,
 .auth-art::after {
-  content: '正德厚生  笃学敏行';
-  position: absolute;
-  right: 24px;
-  bottom: 28px;
-  font-family: 'Noto Serif SC', serif;
-  font-size: 42px;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.08);
-  writing-mode: vertical-rl;
-}
-
-.auth-art::after {
-  content: '';
   display: none;
-}
-
-.auth-emblem {
-  width: min(240px, 100%);
-  height: auto;
-  display: block;
-  margin-bottom: 8px;
-  border-radius: 10px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
 }
 
 .auth-art-inner {
@@ -258,12 +249,15 @@ textarea:focus,
 }
 
 .auth-art h1 {
-  font-size: 52px;
-  margin: 18px 0 8px;
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-weight: 400;
+  font-size: 56px;
+  margin: 8px 0 6px;
+  color: var(--nnu-green);
 }
 
 .motto {
-  color: var(--gold-200);
+  color: #c49a2a;
   letter-spacing: 0.28em;
   margin-bottom: 18px;
 }
@@ -309,9 +303,32 @@ textarea:focus,
   display: grid;
   place-items: center;
   padding: 32px 16px;
+  position: relative;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(244, 246, 241, 0.94), rgba(244, 246, 241, 0.96)),
-    url('/campus/suiyuan-gate.png') center / cover no-repeat;
+    radial-gradient(circle at 18% 12%, #ffe8c8, transparent 32%),
+    radial-gradient(circle at 88% 80%, #d5eadc, transparent 36%),
+    var(--cream);
+}
+
+.setup-card {
+  position: relative;
+  z-index: 1;
+  justify-items: center;
+  text-align: center;
+}
+
+.setup-card label,
+.setup-card .label-like,
+.setup-card .avatar-grid,
+.setup-card .upload-row,
+.setup-card .primary-btn {
+  width: 100%;
+  text-align: left;
+}
+
+.setup-card .primary-btn {
+  text-align: center;
 }
 
 .avatar-grid {
@@ -360,20 +377,6 @@ textarea:focus,
   position: relative;
   background: var(--cream);
   transition: background 0.25s ease;
-}
-
-.shell-watermark {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.14;
-  background: var(--hero) center 30% / cover no-repeat;
-}
-
-.shell > * {
-  position: relative;
-  z-index: 1;
 }
 
 .topbar {
@@ -428,8 +431,9 @@ textarea:focus,
 
 .brand strong {
   display: block;
-  font-family: 'Noto Serif SC', serif;
-  font-size: 18px;
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 400;
 }
 
 .brand em {
@@ -508,71 +512,26 @@ textarea:focus,
   margin-bottom: 6px;
 }
 
-/* campus photo hero */
-.campus-hero {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius);
-  min-height: 240px;
-  margin-bottom: 28px;
-  color: #fff;
-  box-shadow: var(--shadow);
+.home-welcome {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 4px 0 22px;
 }
 
-.campus-hero-photo {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(12, 42, 26, 0.78) 0%, rgba(12, 42, 26, 0.28) 62%, rgba(12, 42, 26, 0.15) 100%),
-    var(--hero) center 40% / cover no-repeat;
+.home-welcome .youzi {
+  flex-shrink: 0;
 }
 
-.campus-hero-copy {
-  position: relative;
-  z-index: 1;
-  padding: 36px 32px 32px;
-  max-width: 640px;
+.home-welcome h1 {
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin: 4px 0 6px;
 }
 
-.campus-hero .eyebrow {
-  color: var(--gold-200);
-}
-
-.campus-hero h1 {
-  font-size: 40px;
-  display: grid;
-  gap: 6px;
-  color: #fff;
-}
-
-.campus-hero h1 span {
-  display: block;
-  font-size: 18px;
-  color: var(--gold-200);
-  font-weight: 600;
-}
-
-.hero-style {
-  display: inline-block;
-  margin: 10px 0 8px;
-  padding: 4px 10px;
-  border: 1px solid rgba(240, 226, 182, 0.45);
-  color: var(--gold-200);
-  letter-spacing: 0.2em;
-  font-size: 12px;
-}
-
-.campus-hero .hero-copy {
-  color: rgba(255, 255, 255, 0.9);
-  margin-top: 8px;
-}
-
-.home .campus-hero {
-  margin-top: 0;
-}
-
-.around .campus-hero {
-  margin-top: 8px;
+.home-welcome p:last-child {
+  color: var(--muted);
 }
 
 .entry-grid,
@@ -598,11 +557,15 @@ textarea:focus,
 
 .entry-card,
 .sub-card {
-  padding: 22px;
+  padding: 20px;
   display: grid;
-  gap: 10px;
-  min-height: 220px;
+  gap: 8px;
+  min-height: 0;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.mini-illo {
+  margin-bottom: 2px;
 }
 
 .entry-card:hover,
@@ -669,7 +632,7 @@ textarea:focus,
 
 .page-head h1,
 .thread-head h1 {
-  font-size: 34px;
+  font-size: 32px;
   margin: 4px 0 8px;
 }
 
@@ -897,9 +860,9 @@ textarea:focus,
   }
 
   .auth-art h1,
-  .campus-hero h1,
+  .home-welcome h1,
   .page-head h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .topbar {
@@ -929,122 +892,140 @@ textarea:focus,
   .avatar-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .campus-hero-copy {
-    padding: 28px 20px 22px;
-  }
 }
 
 /* campus themes */
 .shell[data-campus='随园'] {
-  --cream: #f3ead6;
-  --paper: #fff8ec;
-  --line: #e2d0b0;
-  --ink: #3a2418;
-  --muted: #7a6450;
-  --accent: #8b2e24;
-  --radius: 10px;
-  --hero: url('/campus/suiyuan-hall.png');
-  --shadow: 0 18px 50px rgba(139, 46, 36, 0.12);
-}
-
-.shell[data-campus='随园'] .campus-hero-photo {
-  background:
-    linear-gradient(90deg, rgba(58, 36, 24, 0.8) 0%, rgba(139, 46, 36, 0.32) 70%, rgba(58, 36, 24, 0.12) 100%),
-    url('/campus/suiyuan-hall.png') center 58% / cover no-repeat;
-}
-
-.shell[data-campus='随园'] .campus-hero::after {
-  content: '';
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 92px;
-  height: 92px;
-  background: url('/campus/lattice.svg') center / contain no-repeat;
-  opacity: 0.4;
-  pointer-events: none;
+  --cream: #fff4dd;
+  --paper: #fffaf0;
+  --line: #f0d9b0;
+  --ink: #4a2e22;
+  --muted: #8a6a58;
+  --accent: #d45a48;
+  --shadow: 0 16px 40px rgba(212, 90, 72, 0.1);
 }
 
 .shell[data-campus='随园'] .topbar {
-  border-bottom: 2px solid #c5a059;
-}
-
-.shell[data-campus='随园'] .brand-seal {
-  background: #8b2e24;
+  border-bottom: 1px solid #e8c56b;
 }
 
 .shell[data-campus='随园'] .primary-btn {
-  background: linear-gradient(135deg, #8b2e24, #5c1c16);
-  box-shadow: 0 8px 20px rgba(139, 46, 36, 0.28);
+  background: linear-gradient(180deg, #e07a4a, #d45a48);
+  box-shadow: 0 8px 0 #8b2e24;
 }
 
 .shell[data-campus='随园'] .top-nav a.active,
 .shell[data-campus='随园'] .top-nav a:hover {
   background: #f3e4c8;
-  color: #8b2e24;
+  color: #d45a48;
 }
 
 .shell[data-campus='仙林'] {
-  --cream: #e8eef2;
+  --cream: #eef5fb;
   --paper: #ffffff;
-  --line: #cfd8df;
-  --ink: #1f2c34;
+  --line: #d5e3ee;
+  --ink: #2a3a44;
   --muted: #5c6b75;
-  --accent: #2c3942;
-  --radius: 6px;
-  --hero: url('/campus/xianlin-gate.png');
-  --shadow: 0 18px 40px rgba(36, 48, 56, 0.1);
-}
-
-.shell[data-campus='仙林'] .campus-hero-photo {
-  background:
-    linear-gradient(90deg, rgba(20, 32, 40, 0.78) 0%, rgba(20, 32, 40, 0.22) 68%, rgba(20, 32, 40, 0.08) 100%),
-    url('/campus/xianlin-gate.png') center 42% / cover no-repeat;
-}
-
-.shell[data-campus='仙林'] .campus-hero,
-.shell[data-campus='仙林'] .entry-card,
-.shell[data-campus='仙林'] .sub-card,
-.shell[data-campus='仙林'] .post-card {
-  border-radius: 4px;
+  --accent: #3d6a8a;
+  --shadow: 0 16px 40px rgba(61, 106, 138, 0.08);
 }
 
 .shell[data-campus='仙林'] .campus-tab.on {
-  background: #2c3942;
-  color: #f0e2b6;
+  background: #3d6a8a;
+  color: #fff8e8;
 }
 
 .shell[data-campus='仙林'] .topbar {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid #c5a059;
-}
-
-.shell[data-campus='仙林'] .brand-seal {
-  background: #1a6840;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid #e8c56b;
 }
 
 .shell[data-campus='仙林'] .top-nav a.active,
 .shell[data-campus='仙林'] .top-nav a:hover {
-  background: #eef3f0;
+  background: #e8f2ec;
   color: #1a6840;
 }
 
 .shell[data-campus='紫金'] {
-  --cream: #eaf2ea;
-  --paper: #fbfefb;
+  --cream: #eaf6ea;
+  --paper: #fbfffb;
   --line: #cfe0d2;
   --accent: #1a6840;
-  --hero: none;
 }
 
-.shell[data-campus='紫金'] .shell-watermark {
-  opacity: 0;
+.illo {
+  display: block;
+  overflow: visible;
 }
 
-.shell[data-campus='紫金'] .campus-hero-photo {
-  background:
-    linear-gradient(120deg, #0f3d26 0%, #1a6840 58%, #2a8f5c 100%),
-    radial-gradient(circle at 82% 18%, rgba(197, 160, 89, 0.4), transparent 42%);
+.illo-bounce {
+  animation: bounce 2.4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.illo-float { animation: floaty 3.2s ease-in-out infinite; }
+.illo-sway { animation: sway 3.6s ease-in-out infinite; }
+.illo-twinkle { animation: twinkle 1.8s ease-in-out infinite; }
+.illo-drift { animation: drift 8s ease-in-out infinite; }
+.illo-petal { animation: fall 9s linear infinite; }
+.illo-spin { animation: spin 8s linear infinite; }
+.illo-wag {
+  animation: wag 0.8s ease-in-out infinite;
+  transform-origin: 30px 18px;
+}
+.illo-blink { animation: blink 4.8s step-end infinite; }
+.delay-1 { animation-delay: -1s; }
+.delay-2 { animation-delay: -2s; }
+.delay-3 { animation-delay: -3s; }
+.delay-4 { animation-delay: -4s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(4deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@keyframes drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+@keyframes fall {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate3d(16px, 80px, 0) rotate(140deg); opacity: 0; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes wag {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(-14deg); }
+}
+@keyframes blink {
+  0%, 86%, 100% { transform: scaleY(1); }
+  90% { transform: scaleY(0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .illo-bounce,
+  .illo-float,
+  .illo-sway,
+  .illo-twinkle,
+  .illo-drift,
+  .illo-petal,
+  .illo-spin,
+  .illo-wag,
+  .illo-blink,
+  .youzi,
+  .primary-btn {
+    animation: none;
+  }
 }

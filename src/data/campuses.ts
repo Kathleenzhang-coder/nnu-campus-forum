@@ -7,7 +7,6 @@ export type CampusMeta = {
   motto: string
   hero: string
   style: string
-  photo: string
   aroundLead: string
   around: {
     mall: { desc: string }
@@ -23,8 +22,7 @@ export const CAMPUSES: CampusMeta[] = [
     name: '仙林校区',
     motto: '银门金字 · 敬文与仙林湖',
     hero: '仙林校区开阔现代。周边、选课和校园生活，只显示本区同学写下的内容。',
-    style: '现代开阔',
-    photo: '/campus/xianlin-gate.png',
+    style: '银门金字',
     aroundLead: '走出仙林校门：金鹰湖滨、和园、仙林湖。先选小类再看帖。',
     around: {
       mall: { desc: '金鹰湖滨天地、南大和园商业街。仙林同学周末逛街的第一站。' },
@@ -38,8 +36,7 @@ export const CAMPUSES: CampusMeta[] = [
     name: '随园校区',
     motto: '黄墙朱柱 · 紫藤与银杏',
     hero: '随园校区一脉古典。周边、选课和校园生活，只显示本区同学写下的内容。',
-    style: '古典园林',
-    photo: '/campus/suiyuan-hall.png',
+    style: '黄墙朱柱',
     aroundLead: '走出随园校门：湖南路、新街口、玄武湖。先选小类再看帖。',
     around: {
       mall: { desc: '湖南路步行街、新街口商圈。随园出门就能接到城市里的店。' },
@@ -54,7 +51,6 @@ export const CAMPUSES: CampusMeta[] = [
     motto: '钟山脚下 · 板仓书声',
     hero: '紫金校区临近钟山。周边、选课和校园生活，只显示本区同学写下的内容。',
     style: '钟山书院',
-    photo: '',
     aroundLead: '走出紫金校门：孝陵卫、卫岗、钟山风景区。先选小类再看帖。',
     around: {
       mall: { desc: '孝陵卫、马群一带。日用补给和周末逛街可以写在这里。' },
