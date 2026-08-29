@@ -4,6 +4,7 @@ import { Layout } from './components/Layout'
 import { AuthProvider } from './context/AuthContext'
 import { CampusProvider } from './context/CampusContext'
 import { ForumProvider } from './context/ForumContext'
+import { AdminPage } from './pages/AdminPage'
 import { AroundHubPage } from './pages/AroundHubPage'
 import { BoardPage } from './pages/BoardPage'
 import { ComposePage } from './pages/ComposePage'
@@ -54,6 +55,7 @@ export default function App() {
                 <Route path="/post/:postId" element={<PostPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
               </Route>
+              <Route path="/admin" element={<AdminPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>

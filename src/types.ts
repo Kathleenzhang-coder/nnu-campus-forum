@@ -23,12 +23,29 @@ export type User = {
   createdAt: string
 }
 
+export type MediaItem = {
+  id: string
+  kind: 'image' | 'video'
+  src: string
+}
+
+export type AuthorCard = {
+  id: string
+  nickname: string
+  avatar: string
+  major: string
+  enrollYear: number
+}
+
 export type Post = {
   id: string
   boardId: BoardId
   title: string
   content: string
+  media?: MediaItem[]
   authorId: string
+  author?: AuthorCard
+  authorRealName?: string
   createdAt: string
   likes: string[]
   pinned?: boolean

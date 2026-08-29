@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CAMPUS_TAGS, COURSE_TAGS } from '../data/boards'
-import { timeAgo, yearLabel } from '../lib/format'
+import { postHeading, timeAgo, yearLabel } from '../lib/format'
 import { resolveAuthor } from '../lib/storage'
 import type { Post, User } from '../types'
 import { Avatar } from './Avatar'
@@ -12,9 +12,11 @@ type Props = {
 }
 
 export function PostCard({ post, users, commentCount = 0 }: Props) {
-  const author = resolveAuthor(post.authorId, users)
+  const author = post.author ?? resolveAuthor(post.authorId, users)
   const courseTag = COURSE_TAGS.find((t) => t.id === post.courseTag)
   const campusTag = CAMPUS_TAGS.find((t) => t.id === post.campusTag)
+  const images = (post.media ?? []).filter((m) => m.kind === 'image')
+  const hasVideo = (post.media ?? []).some((m) => m.kind === 'video')
 
   return (
     <Link className="post-card" to={`/post/${post.id}`}>
@@ -24,14 +26,22 @@ export function PostCard({ post, users, commentCount = 0 }: Props) {
         {campusTag && <span className="badge muted">{campusTag.label}</span>}
         {post.campus && <span className="badge campus">{post.campus}</span>}
       </div>
-      <h3>{post.title}</h3>
+      <h3>{postHeading(post)}</h3>
       {post.courseName && (
         <p className="course-line">
           {post.courseName}
           {post.teacher ? ` · ${post.teacher}` : ''}
         </p>
       )}
-      <p className="excerpt">{post.content}</p>
+      {post.content && <p className="excerpt">{post.content}</p>}
+      {(images.length > 0 || hasVideo) && (
+        <div className="media-row">
+          {images.slice(0, 3).map((item) => (
+            <img key={item.id} src={item.src} alt="" />
+          ))}
+          {hasVideo && <span className="badge">含视频</span>}
+        </div>
+      )}
       <div className="post-meta">
         <Avatar avatar={author.avatar} size={28} alt={author.nickname} />
         <span>{author.nickname}</span>

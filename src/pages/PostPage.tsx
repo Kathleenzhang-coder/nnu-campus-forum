@@ -4,7 +4,8 @@ import { Avatar } from '../components/Avatar'
 import { useAuth } from '../context/AuthContext'
 import { useForum } from '../context/ForumContext'
 import { BOARDS, CAMPUS_TAGS, COURSE_TAGS } from '../data/boards'
-import { timeAgo, yearLabel } from '../lib/format'
+import { postHeading, timeAgo, yearLabel } from '../lib/format'
+import { isDirectVideo } from '../lib/media'
 import { resolveAuthor } from '../lib/storage'
 
 export function PostPage() {
@@ -24,7 +25,7 @@ export function PostPage() {
     )
   }
 
-  const author = resolveAuthor(post.authorId, users)
+  const author = post.author ?? resolveAuthor(post.authorId, users)
   const comments = commentsOf(post.id)
   const meta = BOARDS[post.boardId]
   const liked = user ? post.likes.includes(user.id) : false
@@ -63,7 +64,7 @@ export function PostPage() {
           {campusTag && <span className="badge muted">{campusTag.label}</span>}
           {post.campus && <span className="badge campus">{post.campus}</span>}
         </div>
-        <h1>{post.title}</h1>
+        <h1>{postHeading(post)}</h1>
         {post.courseName && (
           <p className="course-line big">
             {post.courseName}
@@ -83,7 +84,26 @@ export function PostPage() {
         </div>
       </header>
 
-      <div className="thread-body">{post.content}</div>
+      {(post.content || (post.media && post.media.length > 0)) && (
+        <div className="thread-body">
+          {post.content ? <div className="thread-text">{post.content}</div> : null}
+          {post.media && post.media.length > 0 && (
+            <div className="thread-media">
+              {post.media.map((item) =>
+                item.kind === 'image' ? (
+                  <img key={item.id} src={item.src} alt="" />
+                ) : isDirectVideo(item.src) ? (
+                  <video key={item.id} src={item.src} controls playsInline />
+                ) : (
+                  <a key={item.id} className="video-link" href={item.src} target="_blank" rel="noreferrer">
+                    打开视频链接
+                  </a>
+                ),
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="thread-actions">
         <button

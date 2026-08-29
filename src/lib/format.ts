@@ -10,6 +10,12 @@ export function timeAgo(iso: string) {
   return new Date(iso).toLocaleDateString('zh-CN')
 }
 
+export function postHeading(post: { title: string; content: string }) {
+  if (post.title.trim()) return post.title.trim()
+  const line = post.content.trim().split('\n')[0] ?? ''
+  return line.slice(0, 28) || '未命名帖子'
+}
+
 export function yearLabel(year: number) {
   if (year <= 1902) return '站务'
   return `${year} 级`

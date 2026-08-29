@@ -5,7 +5,7 @@ import type { Campus, Comment, Post, User } from '../types'
 const KEYS = {
   users: 'nnu-youyuan-users',
   session: 'nnu-youyuan-session',
-  posts: 'nnu-youyuan-posts-v2',
+  posts: 'nnu-youyuan-posts-v3',
   comments: 'nnu-youyuan-comments',
   campus: 'nnu-youyuan-campus',
 }

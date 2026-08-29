@@ -796,9 +796,98 @@ textarea:focus,
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 24px;
-  white-space: pre-wrap;
   font-size: 16px;
   margin: 16px 0;
+  display: grid;
+  gap: 16px;
+}
+
+.thread-text {
+  white-space: pre-wrap;
+}
+
+.thread-media,
+.media-row,
+.media-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.thread-media img,
+.media-row img,
+.media-preview img,
+.thread-media video {
+  max-width: min(100%, 420px);
+  max-height: 280px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #f3efe6;
+}
+
+.thread-media video {
+  object-fit: contain;
+  background: #111;
+}
+
+.video-link {
+  color: var(--purple-700);
+  font-weight: 700;
+}
+
+.media-pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.media-preview-item {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.danger-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  background: #fde8e8;
+  color: var(--danger);
+}
+
+.admin-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.admin-shell {
+  min-height: 100vh;
+}
+
+.admin-list {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.admin-card h2 {
+  font-size: 22px;
+}
+
+.admin-author {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .thread-actions {

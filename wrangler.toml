@@ -1,0 +1,7 @@
+name = "nnu-youyuan"
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "dist"
+
+[[kv_namespaces]]
+binding = "FORUM"
+id = "3977a2bbaa954c49b0515518616fc2b0"
