@@ -36,7 +36,7 @@ export function ComposePage() {
     if (!file) return
     try {
       const src = await fileToImageSrc(file)
-      setMedia((list) => [...list, { id: crypto.randomUUID(), kind: 'image', src }].slice(0, 4))
+      setMedia((list) => [...list, { id: crypto.randomUUID(), kind: 'image' as const, src }].slice(0, 4))
       setError('')
     } catch {
       setError('图片读取失败，请换一张。')
@@ -49,7 +49,7 @@ export function ComposePage() {
       const src = await fileToVideoSrc(file)
       setMedia((list) => {
         const withoutVideo = list.filter((item) => item.kind !== 'video')
-        return [...withoutVideo, { id: crypto.randomUUID(), kind: 'video', src }]
+        return [...withoutVideo, { id: crypto.randomUUID(), kind: 'video' as const, src }]
       })
       setError('')
     } catch (err) {
@@ -66,7 +66,7 @@ export function ComposePage() {
     }
     setMedia((list) => {
       const withoutVideo = list.filter((item) => item.kind !== 'video')
-      return [...withoutVideo, { id: crypto.randomUUID(), kind: 'video', src: url }]
+      return [...withoutVideo, { id: crypto.randomUUID(), kind: 'video' as const, src: url }]
     })
     setVideoUrl('')
     setError('')
